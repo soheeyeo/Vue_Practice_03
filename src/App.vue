@@ -5,7 +5,8 @@
         <li>Cancel</li>
       </ul>
       <ul class="header-button-right">
-        <li>Next</li>
+        <li v-if="step == 1" @click="step++">Next</li>
+        <li v-if="step == 2" @click="publish">발행</li>
       </ul>
       <img src="./assets/logo.png" class="logo" />
     </div>
@@ -60,7 +61,21 @@ export default {
       console.log(url);
       this.이미지 = url;
       this.step++;
-    }
+    },
+    publish(){
+      var 내게시물 = {
+        name: "Kim Hyun",
+        userImage: "https://placeimg.com/100/100/arch",
+        postImage: "내가업로드한이미지URL",
+        likes: 36,
+        date: "May 15",
+        liked: false,
+        content: "내가작성한글",
+        filter: "perpetua"
+      };
+      this.게시물데이터.unshift(내게시물);
+      this.step = 0;
+    },
   }
 }
 </script>
