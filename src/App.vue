@@ -11,8 +11,8 @@
       <img src="./assets/logo.png" class="logo" />
     </div>
 
-    <h4>안녕 {{ $store.state.name }}</h4>
-    <button @click="$store.commit('이름변경')">버튼</button>
+    <h4>안녕 {{ $store.state.name }} {{ $store.state.age }}</h4>
+    <button @click="$store.commit('나이변경')">버튼</button>
 
     <Container @write="작성한글 = $event" :게시물데이터="게시물데이터" :step="step" :이미지="이미지"/>
 
