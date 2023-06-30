@@ -11,7 +11,7 @@
       <img src="./assets/logo.png" class="logo" />
     </div>
 
-    <Container :게시물데이터="게시물데이터" :step="step" :이미지="이미지"/>
+    <Container @write="작성한글 = $event" :게시물데이터="게시물데이터" :step="step" :이미지="이미지"/>
 
     <button @click="more">더보기</button>
 
@@ -37,6 +37,7 @@ export default {
   name: 'App',
   data(){
     return {
+      작성한글 : '',
       step : 0,
       게시물데이터: postingData,
       더보기 : 0,
@@ -66,11 +67,11 @@ export default {
       var 내게시물 = {
         name: "Kim Hyun",
         userImage: "https://placeimg.com/100/100/arch",
-        postImage: "내가업로드한이미지URL",
+        postImage: this.이미지,
         likes: 36,
         date: "May 15",
         liked: false,
-        content: "내가작성한글",
+        content: this.작성한글,
         filter: "perpetua"
       };
       this.게시물데이터.unshift(내게시물);
