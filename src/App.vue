@@ -44,6 +44,11 @@ export default {
       이미지 : '',
     }
   },
+  mounted(){
+    this.emitter.on('작명', (a)=>{
+      console.log(a)
+    });
+  },
   components: {
     Container : ContainerBox,
   },

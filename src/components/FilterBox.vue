@@ -1,6 +1,7 @@
 <template>
     <div :class="필터 + ' filter-item'" :style="`background-image:url(${이미지})`">
         <slot></slot>
+        <button @click="fire">버튼</button>
     </div> 
 </template>
 
@@ -10,6 +11,11 @@ export default {
     data(){
         return{
             msg : 'hello',
+        }
+    },
+    methods : {
+        fire(){
+            this.emitter.emit('작명', '데이터')
         }
     },
     props : {
