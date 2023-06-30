@@ -8,7 +8,7 @@
         <div v-if="step === 1">
             <div class="upload-image" :style="{ backgroundImage : `url(${이미지})` }"></div>
             <div class="filters">
-                <FilterBox :이미지="이미지" v-for="i in 필터들" :key="i"></FilterBox>
+                <FilterBox :필터="필터" :이미지="이미지" v-for="필터 in 필터들" :key="필터"></FilterBox>
             </div>
         </div>
 

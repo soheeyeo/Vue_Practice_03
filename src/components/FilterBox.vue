@@ -1,11 +1,12 @@
 <template>
-    <div class="filter-item" :style="`background-image:url(${이미지})`"></div> 
+    <div :class="필터 + ' filter-item'" :style="`background-image:url(${이미지})`"></div> 
 </template>
 
 <script>
 export default {
     name : 'FilterBox',
     props : {
+        필터 : String,
         이미지 : String,
     }
 }
