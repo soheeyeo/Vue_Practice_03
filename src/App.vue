@@ -42,12 +42,13 @@ export default {
       게시물데이터: postingData,
       더보기 : 0,
       이미지 : '',
+      선택한필터 : '',
     }
   },
   mounted(){
-    this.emitter.on('작명', (a)=>{
-      console.log(a)
-    });
+      this.emitter.on('필터적용', (a)=>{
+          this.선택한필터 = a
+      })
   },
   components: {
     Container : ContainerBox,
@@ -77,7 +78,7 @@ export default {
         date: "May 15",
         liked: false,
         content: this.작성한글,
-        filter: "perpetua"
+        filter: this.선택한필터,
       };
       this.게시물데이터.unshift(내게시물);
       this.step = 0;
