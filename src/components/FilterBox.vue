@@ -1,6 +1,6 @@
 <template>
     <div :class="필터 + ' filter-item'" :style="`background-image:url(${이미지})`">
-        <slot :msg="msg"></slot>
+        <slot></slot>
     </div> 
 </template>
 
