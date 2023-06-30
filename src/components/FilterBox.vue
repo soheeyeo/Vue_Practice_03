@@ -1,12 +1,17 @@
 <template>
     <div :class="필터 + ' filter-item'" :style="`background-image:url(${이미지})`">
-        <slot></slot>
+        <slot :msg="msg"></slot>
     </div> 
 </template>
 
 <script>
 export default {
     name : 'FilterBox',
+    data(){
+        return{
+            msg : 'hello',
+        }
+    },
     props : {
         필터 : String,
         이미지 : String,

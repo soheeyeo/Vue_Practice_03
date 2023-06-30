@@ -9,7 +9,11 @@
             <div class="upload-image" :style="{ backgroundImage : `url(${이미지})` }"></div>
             <div class="filters">
                 <FilterBox :필터="필터" :이미지="이미지" v-for="필터 in 필터들" :key="필터">
-                    {{필터}}
+                    <template v-slot:default="작명">
+                        <div>
+                            {{작명.msg}}
+                        </div>
+                    </template>
                 </FilterBox>
             </div>
         </div>
