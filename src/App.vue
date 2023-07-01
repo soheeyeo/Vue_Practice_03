@@ -11,7 +11,7 @@
       <img src="./assets/logo.png" class="logo" />
     </div>
 
-    <p>{{name}} {{age}} {{likes}}</p>
+    <p>{{내이름}} {{age}} {{likes}}</p>
 
     <!-- <h4>안녕 {{ $store.state.name }} {{ $store.state.age }}</h4>
     <button @click="$store.commit('나이변경', 10)">버튼</button>
@@ -67,6 +67,7 @@ export default {
       return this.$store.state.name
     },
     ...mapState(['name', 'age', 'likes']),
+    ...mapState({ 내이름 : 'name' }),
   },
   methods : {
     more(){
