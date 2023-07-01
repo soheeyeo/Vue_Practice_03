@@ -11,18 +11,17 @@
       <img src="./assets/logo.png" class="logo" />
     </div>
 
-    <h4>안녕 {{ $store.state.name }} {{ $store.state.age }}</h4>
+    <p>{{name}} {{age}} {{likes}}</p>
+
+    <!-- <h4>안녕 {{ $store.state.name }} {{ $store.state.age }}</h4>
     <button @click="$store.commit('나이변경', 10)">버튼</button>
 
     <p>{{ $store.state.more }}</p>
-    <button @click="$store.dispatch('getData')">더보기버튼</button>
+    <button @click="$store.dispatch('getData')">더보기버튼</button> -->
 
     <Container @write="작성한글 = $event" :게시물데이터="게시물데이터" :step="step" :이미지="이미지"/>
 
     <!-- <button @click="more">더보기</button> -->
-
-    <p>{{now2}} {{카운터}}</p>
-    <button @click="카운터++">버튼</button>
 
     <div class="footer">
       <ul class="footer-button-plus">
@@ -39,6 +38,7 @@
 import postingData from './assets/posting.js';
 import ContainerBox from './components/Container.vue';
 import axios from 'axios';
+import {mapState} from 'vuex';
 
 axios.post()
 
@@ -52,7 +52,6 @@ export default {
       더보기 : 0,
       이미지 : '',
       선택한필터 : '',
-      카운터 : 0,
     }
   },
   mounted(){
@@ -64,14 +63,12 @@ export default {
     Container : ContainerBox,
   },
   computed : {
-    now2(){
-      return new Date()
+    name(){
+      return this.$store.state.name
     },
+    ...mapState(['name', 'age', 'likes']),
   },
   methods : {
-    now(){
-      return new Date()
-    },
     more(){
       axios.get(`https://codingapple1.github.io/vue/more${this.더보기}.json`)
       .then((결과)=>{
