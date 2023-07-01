@@ -21,7 +21,7 @@
 
     <!-- <button @click="more">더보기</button> -->
 
-    <p>{{now()}} {{카운터}}</p>
+    <p>{{now2}} {{카운터}}</p>
     <button @click="카운터++">버튼</button>
 
     <div class="footer">
