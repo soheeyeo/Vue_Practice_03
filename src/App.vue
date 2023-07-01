@@ -13,11 +13,11 @@
 
     <p>{{내이름}} {{age}} {{likes}}</p>
 
-    <!-- <h4>안녕 {{ $store.state.name }} {{ $store.state.age }}</h4>
-    <button @click="$store.commit('나이변경', 10)">버튼</button>
+    <h4>안녕 {{ $store.state.name }} {{ $store.state.age }}</h4>
+    <button @click="나이변경(10)">버튼</button>
 
     <p>{{ $store.state.more }}</p>
-    <button @click="$store.dispatch('getData')">더보기버튼</button> -->
+    <button @click="$store.dispatch('getData')">더보기버튼</button>
 
     <Container @write="작성한글 = $event" :게시물데이터="게시물데이터" :step="step" :이미지="이미지"/>
 
@@ -38,7 +38,7 @@
 import postingData from './assets/posting.js';
 import ContainerBox from './components/Container.vue';
 import axios from 'axios';
-import {mapState} from 'vuex';
+import {mapMutations, mapState} from 'vuex';
 
 axios.post()
 
@@ -70,6 +70,7 @@ export default {
     ...mapState({ 내이름 : 'name' }),
   },
   methods : {
+    ...mapMutations(['setMore', '좋아요', '나이변경']),
     more(){
       axios.get(`https://codingapple1.github.io/vue/more${this.더보기}.json`)
       .then((결과)=>{
