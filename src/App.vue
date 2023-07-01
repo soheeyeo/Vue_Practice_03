@@ -19,7 +19,10 @@
 
     <Container @write="작성한글 = $event" :게시물데이터="게시물데이터" :step="step" :이미지="이미지"/>
 
-    <button @click="more">더보기</button>
+    <!-- <button @click="more">더보기</button> -->
+
+    <p>{{now()}} {{카운터}}</p>
+    <button @click="카운터++">버튼</button>
 
     <div class="footer">
       <ul class="footer-button-plus">
@@ -49,6 +52,7 @@ export default {
       더보기 : 0,
       이미지 : '',
       선택한필터 : '',
+      카운터 : 0,
     }
   },
   mounted(){
@@ -59,7 +63,15 @@ export default {
   components: {
     Container : ContainerBox,
   },
+  computed : {
+    now2(){
+      return new Date()
+    },
+  },
   methods : {
+    now(){
+      return new Date()
+    },
     more(){
       axios.get(`https://codingapple1.github.io/vue/more${this.더보기}.json`)
       .then((결과)=>{
