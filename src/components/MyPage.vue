@@ -12,6 +12,7 @@
 <script>
 import { onMounted, ref, toRefs, computed } from 'vue';
 import axios from 'axios';
+import { useStore } from 'vuex';
 
 export default {
     name : 'myPage',
@@ -24,8 +25,12 @@ export default {
         let { one } = toRefs(props);
         console.log(one.value);
 
-        let 결과 = computed(()=>{ return follower.value.length });
-        console.log(결과.value)
+        let re = computed(()=>{ return follower.value.length });
+        console.log(re.value);
+
+        let store = useStore();
+        console.log(store.state.name);
+        console.log(store.commit());
 
         onMounted(()=>{
             axios.get('/follower.json').then((a)=>{
