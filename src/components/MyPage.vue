@@ -10,13 +10,16 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import axios from 'axios';
 
 export default {
     name : 'myPage',
     setup(){
         let follower = ref([]);
+        let test = reactive({ name : 'kim' });
+
+        test;
 
         onMounted(()=>{
             axios.get('/follower.json').then((a)=>{
