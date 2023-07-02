@@ -11,13 +11,13 @@
       <img src="./assets/logo.png" class="logo" />
     </div>
 
-    <p>{{내이름}} {{age}} {{likes}}</p>
+    <!-- <p>{{내이름}} {{age}} {{likes}}</p>
 
     <h4>안녕 {{ $store.state.name }} {{ $store.state.age }}</h4>
     <button @click="나이변경(10)">버튼</button>
 
     <p>{{ $store.state.more }}</p>
-    <button @click="$store.dispatch('getData')">더보기버튼</button>
+    <button @click="$store.dispatch('getData')">더보기버튼</button> -->
 
     <Container @write="작성한글 = $event" :게시물데이터="게시물데이터" :step="step" :이미지="이미지"/>
 
@@ -47,7 +47,7 @@ export default {
   data(){
     return {
       작성한글 : '',
-      step : 0,
+      step : 3,
       게시물데이터: postingData,
       더보기 : 0,
       이미지 : '',
