@@ -116,3 +116,39 @@ export default {
   </template>
 </MsgBox>
 ```
+
+## mitt 라이브러리
+#### mitt 설치
+멀리 떨어진 컴포넌트에 데이터 전송할 때 편리. <bt>
+
+```
+npm install mitt
+```
+main.js 수정. <br>
+
+```tsx
+import mitt from 'mitt'
+let emitter = mitt();
+let app = createApp(App)
+app.config.globalProperties.emitter = emitter;
+
+app.mount('#app')
+```
+
+#### mitt 데이터 사용법
+데이터 보내고 싶은 곳에서 `this.emitter.emit()`으로 전송. <br>
+
+```tsx
+this.emitter.emit('이벤트명', '데이터')
+```
+
+데이터 필요한 곳에서 `this.emitter.on()`으로 수신. <br>
+보통 `mounted()`안에 작성. <br>
+
+```tsx
+mounted(){
+  this.emitter.on('이벤트명', ()=>{
+    실행할 코드
+  });
+},
+```
