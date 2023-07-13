@@ -183,3 +183,22 @@ main.js에 추가. <br>
 import store from './store.js'
 app.use(store).mount('#app')
 ```
+
+#### state 접근
+state 출력할 컴포넌트에서 `{{ $store.state.데이터명 }}`로 불러옴. <br>
+
+```jsx
+// (store.js)
+const store = createStore({
+  state(){
+    return {
+     name : 'Kim',
+    }
+  },
+})
+```
+
+```tsx
+// (App.vue)
+<h4>hello, {{ $store.state.name }}</h4>
+```
