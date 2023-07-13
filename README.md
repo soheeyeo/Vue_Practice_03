@@ -202,3 +202,23 @@ const store = createStore({
 // (App.vue)
 <h4>hello, {{ $store.state.name }}</h4>
 ```
+
+#### Mutations
+vue 파일에서 직접 state 수정 불가. <br>
+state 변경하는 코드 짜려면 `mutations`에 state 수정 방법 정의(함수). <br>
+
+```tsx
+// (store.js)
+const store = createStore({
+  state () {
+    return {
+      age : 20,
+    }
+  },
+  mutations :{
+    addAge(state){
+      state.age++
+    }
+  },
+}
+```
