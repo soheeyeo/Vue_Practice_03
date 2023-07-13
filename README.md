@@ -229,3 +229,48 @@ vue 파일에서 `$store.commit(함수명)`으로 store.js에 state 변경 요�
 // (App.vue)
 <button @click="$store.commit('addAge')">버튼</button>
 ```
+
+#### Actions
+비 순차적 또는 비동기 처리 로직 선언할 때 actions에 등록. <br>
+actions 항목 만든 후 함수 형태로 만들기. <br>
+
+```tsx
+// (store.js)
+const store = createStore({
+  actions : {
+    getData(){
+      axios.get('서버URL').then((results)=>{ 
+        console.log(results.data);
+      })
+    }
+  }
+}
+```
+
+vue 파일에서 `dispatch()`를 사용하여 호출. <br>
+
+```tsx
+// (App.vue)
+<button @click="$store.dispatch('getData')">더보기버튼</button>
+```
+
+`actions` 후에 state 변경하려면 `mutations` 함수 호출. <br>
+
+```tsx
+// (store.js)
+const store = createStore({
+  mutations: {
+    setMore(state, data) {
+      state.more = data;
+    },
+  },
+  actions : {
+    getData(){
+      axios.get('서버URL').then((results)=>{ 
+        console.log(results.data);
+        context.commit('setMore');
+      })
+    },
+  },
+}
+```
