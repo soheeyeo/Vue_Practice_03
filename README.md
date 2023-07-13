@@ -222,3 +222,10 @@ const store = createStore({
   },
 }
 ```
+
+vue 파일에서 `$store.commit(함수명)`으로 store.js에 state 변경 요청. <br>
+
+```tsx
+// (App.vue)
+<button @click="$store.commit('addAge')">버튼</button>
+```
