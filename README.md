@@ -152,3 +152,34 @@ mounted(){
   });
 },
 ```
+
+## Vuex
+#### Vuex 사용 이유
+모튼 컴포넌트들이 데이터를 공유할 수 있는 하나의 js 파일. <br>
+Vue 파일, 데이터 너무 많을 때 사용. <br>
+
+#### Vuex 설치
+```
+npm install vuex@next
+```
+
+store.js 생성. <br>
+```jsx
+import { createStore } from 'vuex'
+
+const store = createStore({
+  state(){
+    return {
+     // 보관할 state 
+    }
+  },
+})
+
+export default store
+```
+
+main.js에 추가. <br>
+```jsx
+import store from './store.js'
+app.use(store).mount('#app')
+```
