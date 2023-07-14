@@ -274,3 +274,24 @@ const store = createStore({
   },
 }
 ```
+
+#### computed
+데이터 사용할 때마다 `$store.state.name` 작성하면 코드 길어짐. <br>
+state를 `computed`에 넣어 놓으면 축약 가능. <br>
+`{{}}`안에서 호출하여 사용 가능. <br>
+
+```tsx
+<template>
+  <p>{{name}}</p>
+</template>
+
+<script>
+export default {
+  computed : {
+    name(){
+      return this.$store.state.name
+    },
+  },
+}
+</script>
+```
