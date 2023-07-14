@@ -295,3 +295,24 @@ export default {
 }
 </script>
 ```
+
+
+#### MapState
+컴포넌트가 여러 state를 사용해야 할 때 여러 computed를 반복해야 하면 복잡해짐. <br>
+`mapState` 사용하면 computed 코드 짧아짐. <br>
+
+```tsx
+<template>
+  <p>{{name}} {{age}}</p>
+</template>
+
+<script>
+import {mapState} from 'vuex';
+
+export default {
+  computed : {
+    ...mapState(['name', 'age'])
+  },
+}
+</script>
+```
